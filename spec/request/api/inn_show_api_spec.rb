@@ -11,7 +11,7 @@ describe "Inn API" do
       inn.inn_rooms.create!(name: "Quarto Térreo", size: 30, guest_limit: 3)
 
       # Act
-      get "/api/v1/inns/1"
+      GET "/api/v1/inns/1"
       # Assert
       expect(response.status).to eq 200
       expect(response.content_type).to include("application/json")
