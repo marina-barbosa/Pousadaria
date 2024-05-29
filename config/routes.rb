@@ -8,6 +8,13 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "home#index"
+
+  namespace :api do
+    namespace :v1 do
+      resources :inns, only: [:show]
+    end
+  end
+
   resources :inns, only: [:show]
 
   resource :inn_management, only: [:show]
@@ -18,11 +25,5 @@ Rails.application.routes.draw do
     end
 
     resources :inn_rooms, only: [:show, :edit, :update]
-  end
-
-  namespace :api do
-    namespace :v1 do
-      resources :inn, only: [:show]
-    end
   end
 end
